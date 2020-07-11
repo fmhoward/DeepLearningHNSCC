@@ -6,7 +6,7 @@ Enclosed is code used for generating models that predict survival after adjuvant
 
 Key functions are as follows:
 
-```
+```python
 #Generates a limited CSV dataset with only desired features from the larger NCDB dataset
 #The input dataset is modified from the standard NCDB dataset to include the following columns
 #MTS_LN_DIS - a numeric measurement of number of lymph nodes dissected
