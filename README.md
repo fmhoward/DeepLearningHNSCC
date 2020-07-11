@@ -49,5 +49,6 @@ trainModels()
 
 #Will use the provided models included in this repository, or previously trained models on a local computer, to generate performance characteristics in the test 
 #Will also provide performance characteristics for the EORTC 22931 and RTOG 95-01 trial inclusion criteria for deciding to administer chemotherapy vs radiotherapy
+#Note - the RSF model is not provided in this repository as the size exceeds repository limit. Please contact the authors to obtain a copy of the trained model used in this project.
 testModels()
 ```
