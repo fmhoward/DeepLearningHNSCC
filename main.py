@@ -1741,6 +1741,13 @@ def findRSFLRSingle2CV(dataS, trainCols, CI = True, testVar = "Chemo", RS = 0):
                 cindex = ctotal
 
 
+#------------------------------------------------------------------------
+#
+#  MODEL AND DATABASE LOADING AND GENERATION
+#
+#------------------------------------------------------------------------
+
+
 def checkModel(model = None, vd = None, testVar = "Chemo", modelType = "NNCPH", IPTW=True, appendString ="", ratio = 0.3):
     #vd['x'].loc[vd['x'].LIFE > 15, "LIFE"] = 15
     modelString = "DeepSurv"
@@ -2327,6 +2334,12 @@ def generateData(filename, defResect = True, verbose = False, missing = False):
         print(dataS[(dataS.OPX == 0) & (dataS.Chemo == 0)].describe().to_string())
 
 
+#------------------------------------------------------------------------
+#
+#  END USER FUNCTIONS FOR TESTING AND REPLICATION
+#
+#------------------------------------------------------------------------
+
 #Run to find hyperparameters for an RSF model
 def hyperparameters_RSF():
     pd.set_option('mode.chained_assignment', None)
@@ -2490,7 +2503,7 @@ def testModels():
     modelT = "RSF"
     rsf = getModel(True, "Chemo", modelType=modelT, td=tdW, hp=hpRSF)
 
-    rec3, hr, b, c = checkModel(rsf, vdW, testVar="Chemo", modelType=modelT, IPTW=True, appendString="")
+    rec3, _, _, _ = checkModel(rsf, vdW, testVar="Chemo", modelType=modelT, IPTW=True, appendString="")
     checkModel(rsf, vdWa1, testVar="Chemo", modelType=modelT, IPTW=False, appendString=", Age > 70")
     checkModel(rsf, vdWa2, testVar="Chemo", modelType=modelT, IPTW=False, appendString=", Age <= 70")
     checkModel(rsf, vdWh1, testVar="Chemo", modelType=modelT, IPTW=False, appendString=", HPV+")
